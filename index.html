@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TW641 | Padavan CAKE 開放原始碼路由器韌體中心</title>
+    <title>TW641 | Padavan CAKE 開放原始碼 路由器韌體中心</title>
     <style>
         /* 亮色與暗色模式顏色變數 */
         :root {
@@ -99,12 +99,18 @@
         
         .footer { text-align: center; margin-top: 60px; font-size: 0.9em; opacity: 0.6; }
         .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.9em; font-style: italic;}
+
+        /* 手機版排版微調 */
+        @media (max-width: 600px) {
+            .header-section h1 { font-size: 1.6em; }
+            .header-section p { font-size: 1em; }
+        }
     </style>
 </head>
 <body>
 
     <div class="header-section">
-        <h1>🇹🇼 TW641 Padavan CAKE 開放原始碼路由器韌體中心</h1>
+        <h1>🇹🇼 TW641 Padavan CAKE <span style="display: inline-block;">開放原始碼</span><span style="display: inline-block;">路由器韌體中心</span></h1>
         <p>致力於對抗 Bufferbloat，為老舊路由器注入新生命</p>
         <a href="https://github.com/TW641" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 15px; background-color: var(--border-color); color: var(--text-color) !important;">⭐ 追蹤我的 GitHub (TW641)</a>
     </div>
@@ -126,7 +132,7 @@
             </li>
             <li>
                 🔵 <strong><a href="https://github.com/TW641/padavan-4.4" target="_blank" rel="noopener noreferrer">padavan-4.4 (Kernel 4.4)</a></strong>
-                <p><span class="tag">C</span> Padavan 4.4 進階機型專區。支援 K2P, DIR-878 等進階機型，提供極致穩定的核心與硬體加速體驗，結合自動化雲端編譯，讓舊機器也能發揮頂尖的流量調度能力。</p>
+                <p><span class="tag">Actions</span> <span class="tag">C</span> Padavan 4.4 進階機型專區。支援 K2P, DIR-878 等進階機型，提供極致穩定的核心與硬體加速體驗，結合自動化雲端編譯，讓舊機器也能發揮頂尖的流量調度能力。</p>
             </li>
         </ul>
     </div>
