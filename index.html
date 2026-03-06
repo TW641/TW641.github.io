@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TW641 | 開源路由器韌體中心</title>
+    <style>
+        /* 亮色與暗色模式顏色變數 */
+        :root {
+            --bg-color: #f6f8fa;
+            --text-color: #24292f;
+            --card-bg: #ffffff;
+            --link-color: #0969da;
+            --border-color: #d0d7de;
+            --btn-bg: #2da44e;
+            --btn-hover: #2c974b;
+            --btn-text: #ffffff;
+            --tag-bg: #eaf5ff;
+            --tag-text: #0969da;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --text-color: #c9d1d9;
+                --card-bg: #161b22;
+                --link-color: #58a6ff;
+                --border-color: #30363d;
+                --btn-bg: #238636;
+                --btn-hover: #2ea043;
+                --btn-text: #ffffff;
+                --tag-bg: #1f2428;
+                --tag-text: #58a6ff;
+            }
+        }
+
+        /* 基礎排版 */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3 { color: var(--text-color); margin-top: 0; }
+        a { color: var(--link-color); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        a:hover { text-decoration: underline; }
+        
+        /* 頂部標題 */
+        .header-section { text-align: center; margin-bottom: 50px; }
+        .header-section h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header-section p { font-size: 1.2em; color: var(--text-color); opacity: 0.8; }
+
+        /* 卡片設計 */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .card h2 { display: flex; align-items: center; font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px;}
+        .card-list { list-style: none; padding: 0; margin: 0; }
+        .card-list li { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color); }
+        .card-list li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .card-list strong { font-size: 1.1em; }
+        .card-list p { margin: 8px 0 0 0; opacity: 0.85; font-size: 0.95em; }
+
+        /* 致謝名單專用排版 */
+        .thanks-list { margin-top: 5px; padding-left: 20px; font-size: 0.95em; opacity: 0.9;}
+        .thanks-list li { margin-bottom: 4px; padding-bottom: 0; border: none; }
+
+        /* 圖片排版 */
+        .memory-img { max-width: 100%; height: auto; border: 1px solid var(--border-color); border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+        /* 按鈕與標籤 */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--btn-bg);
+            color: var(--btn-text) !important;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            text-align: center;
+        }
+        .btn:hover { background-color: var(--btn-hover); text-decoration: none; }
+        .tag {
+            display: inline-block; padding: 2px 8px; font-size: 0.8em; border-radius: 12px;
+            background-color: var(--tag-bg); color: var(--tag-text); margin-right: 8px; font-weight: normal;
+        }
+        
+        .footer { text-align: center; margin-top: 60px; font-size: 0.9em; opacity: 0.6; }
+        .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.9em; font-style: italic;}
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <h1>🇹🇼 TW641 開源路由器韌體中心</h1>
+        <p>致力於對抗 Bufferbloat，為老舊設備注入新生命</p>
+        <a href="https://github.com/TW641" target="_blank" class="btn" style="margin-top: 15px; background-color: var(--border-color); color: var(--text-color) !important;">⭐ 追蹤我的 GitHub (TW641)</a>
+    </div>
+
+    <div class="card">
+        <h2>📦 核心開源專案 (Repositories)</h2>
+        <ul class="card-list">
+            <li>
+                👉 <strong><a href="https://tw641.github.io/Padavan-CAKE/" target="_blank">Padavan-CAKE 雲端編譯懶人包 (入口網站)</a></strong>
+                <p><span class="tag">Guide</span> 全球首發！精準支援 142 款機型，包含完整的實測數據、圖文教學與多國語言支援。一鍵雲端編譯專屬你的抗延遲神器。</p>
+            </li>
+            <li>
+                🍰 <strong><a href="https://github.com/TW641/sch_cake" target="_blank">sch_cake (The "Dave Täht Tribute" Edition)</a></strong>
+                <p><span class="tag">C</span> 獨立移植的 CAKE 演算法核心代碼。紀念 Dave Täht 緩衝膨脹緩解之魂 — "When you miss Dave, modprobe sch_cake!"</p>
+            </li>
+            <li>
+                🟢 <strong><a href="https://github.com/TW641/padavan-builder-workflow" target="_blank">padavan-builder-workflow</a> & <a href="https://github.com/TW641/padavan-ng" target="_blank">padavan-ng</a> (Kernel 3.4)</strong>
+                <p><span class="tag">Actions</span> <span class="tag">C</span> Padavan 3.4 經典老機專區。支援 Archer C2, MI-R3G 等經典老設備，結合自動化雲端編譯，讓舊機器也能發揮頂尖的流量調度能力。</p>
+            </li>
+            <li>
+                🔵 <strong><a href="https://github.com/TW641/padavan-4.4" target="_blank">padavan-4.4 (Kernel 4.4)</a></strong>
+                <p><span class="tag">C</span> Padavan 4.4 進階機型專區。支援 K2P, DIR-878 等進階機型，提供極致穩定的核心與硬體加速體驗。</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🎉 特別致謝 (Special Acknowledgments)</h2>
+        <p>感謝以下前輩與夥伴在開源精神、技術合作、無私引薦與硬體測試上的啟發與貢獻：</p>
+        <ul class="card-list">
+            <li>
+                🏢 <strong>企業與組織</strong>
+                <ul class="thanks-list">
+                    <li><a href="https://www.gl-inet.cn/" target="_blank">GL.iNet - 深圳市广联智通科技有限公司</a></li>
+                    <li><a href="https://www.gl-inet.com/" target="_blank">GL.iNet - GL Technologies (Hong Kong) Limited</a></li>
+                    <li><a href="https://libreqos.io/" target="_blank">LibreQoS - LibreQoE, LLC</a></li>
+                </ul>
+            </li>
+            <li>
+                💻 <strong>開發者與貢獻者 (按字母排列)</strong>
+                <ul class="thanks-list">
+                    <li>Alfie Zhao</li>
+                    <li>Allen Liu</li>
+                    <li>Dave Täht</li>
+                    <li>Frantisek Borsik (Frank)</li>
+                    <li>Jacqueline Wang</li>
+                    <li>Wingsley Yik</li>
+                    <li>佐须之男 (ForgotFun)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>💡 特別回憶錄：那些年我們一起搞的第三方固件</h2>
+        <ul class="card-list">
+            <li>
+                🤝 <strong>Tomato Phoenix 不死鳥 與 佐须之男</strong>
+                <p>其實當年我是負責 Tomato Phoenix 不死鳥的繁體中文翻譯。下方附上當年 Tomato Phoenix 不死鳥的百度網盤下載連結與歷史截圖：<br>
+                <a href="http://pan.baidu.com/s/1jIGpbQe" target="_blank">🔗 http://pan.baidu.com/s/1jIGpbQe</a></p>
+                
+                <img class="memory-img" src="https://tw641.github.io/Padavan-CAKE/images/Tomato-Phoenix-Archive.png" alt="Tomato Phoenix 歷史截圖">
+
+                <p style="margin-top: 20px;">請看下方圖片！這是我當年和陆明峰、佐须之男合作時，他親手寫的感謝紙條和送的禮物。我直到今天都還留著，而且這些感謝如今都仍記在心裡！</p>
+                
+                <img class="memory-img" src="https://tw641.github.io/Padavan-CAKE/images/ForgotFun.jpg" alt="佐須之男的感謝紙條">
+
+                <div class="quote-box">
+                    「佐须之男长期致力于国内第三方免费固件的开发，期间靠的是广大用户的支持才能坚持到现在。一路走来的过程中有喝彩也有唏嘘，但我从未停止过脚步，并希望我能继续再坚持下去。希望广大的用户在力所能及的前提下能给予我些赞助，让这份梦想得以延续。」
+                </div>
+                <p style="margin-top: 10px;">這不是我的帳號，但就讓我們一起幫他一把吧，感謝他多年來的開源貢獻。如果您想支持他，請前往他的官方網站：<br>
+                <a href="https://www.tomato.org.cn/donate-us.html" target="_blank">👉 Tomato 贊助頁面</a> | <a href="https://forgotfun.org/helpus.html" target="_blank">👉 ForgotFun 贊助頁面</a></p>
+            </li>
+            <li>
+                🗣️ <strong>恩山論壇許願池</strong>
+                <p>順帶一提，最近在論壇看到有版友發帖問：恩山為什麼沒有 GL.iNet 版塊？藉著這篇技術分享，我也想在此向管理員許願：<br>
+                <strong>強烈希望能開立一個 GL.iNet 專屬板塊！</strong> 這樣大家討論相關技術跟固件會更方便集中！<br>
+                <a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8463592&fromuid=1047490&fromuser=TW641" target="_blank">👉 前往恩山論壇參與討論</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 TW641. Built with passion for a Bufferbloat-free world.</p>
+    </div>
+
+</body>
+</html>
