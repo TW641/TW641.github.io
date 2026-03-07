@@ -54,28 +54,30 @@
         :root {
             --bg-color: #f6f8fa;
             --text-color: #24292f;
+            --text-muted: #57606a; /* 新增實體次要文字顏色 */
             --card-bg: #ffffff;
-            --link-color: #0969da;
+            --link-color: #0550ae; /* 加深藍色增加對比 */
             --border-color: #d0d7de;
             --btn-bg: #2da44e;
             --btn-hover: #2c974b;
             --btn-text: #ffffff;
             --tag-bg: #eaf5ff;
-            --tag-text: #0969da;
+            --tag-text: #0550ae; /* 配合連結加深藍色 */
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #0d1117;
                 --text-color: #c9d1d9;
+                --text-muted: #8b949e; /* 新增實體次要文字顏色 */
                 --card-bg: #161b22;
-                --link-color: #58a6ff;
+                --link-color: #79c0ff; /* 調亮藍色增加對比 */
                 --border-color: #30363d;
                 --btn-bg: #238636;
                 --btn-hover: #2ea043;
                 --btn-text: #ffffff;
                 --tag-bg: #1f2428;
-                --tag-text: #58a6ff;
+                --tag-text: #79c0ff; /* 配合連結調亮藍色 */
             }
         }
 
@@ -97,7 +99,7 @@
         /* 頂部標題 */
         .header-section { text-align: center; margin-bottom: 50px; }
         .header-section h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .header-section p { font-size: 1.2em; color: var(--text-color); opacity: 0.8; }
+        .header-section p { font-size: 1.2em; color: var(--text-muted); } /* 移除 opacity */
 
         /* 卡片設計 */
         .card {
@@ -115,10 +117,10 @@
         .card-list li { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color); }
         .card-list li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .card-list strong { font-size: 1.1em; }
-        .card-list p { margin: 8px 0 0 0; opacity: 0.85; font-size: 0.95em; }
+        .card-list p { margin: 8px 0 0 0; color: var(--text-muted); font-size: 0.95em; } /* 移除 opacity */
 
         /* 致謝名單專用排版 */
-        .thanks-list { margin-top: 5px; padding-left: 20px; font-size: 0.95em; opacity: 0.9;}
+        .thanks-list { margin-top: 5px; padding-left: 20px; font-size: 0.95em; color: var(--text-muted);} /* 移除 opacity */
         .thanks-list li { margin-bottom: 4px; padding-bottom: 0; border: none; }
 
         /* 圖片排版 */
@@ -142,7 +144,7 @@
             background-color: var(--tag-bg); color: var(--tag-text); margin-right: 8px; font-weight: normal;
         }
         
-        .footer { text-align: center; margin-top: 60px; font-size: 0.9em; opacity: 0.6; }
+        .footer { text-align: center; margin-top: 60px; font-size: 0.9em; color: var(--text-muted); } /* 移除 opacity */
         .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.9em; font-style: italic;}
 
         /* 手機版排版微調 */
