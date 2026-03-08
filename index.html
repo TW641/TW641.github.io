@@ -72,362 +72,51 @@
     </script>
 
     <style>
-        /* 亮色與暗色模式顏色變數 */
-        :root {
-            --bg-color: #f6f8fa;
-            --text-color: #24292f;
-            --text-muted: #57606a;
-            --card-bg: #ffffff;
-            --link-color: #0550ae;
-            --border-color: #d0d7de;
-            --btn-bg: #2da44e;
-            --btn-hover: #2c974b;
-            --btn-text: #ffffff;
-            --tag-bg: #eaf5ff;
-            --tag-text: #0550ae;
-            --table-header: #f3f6f9;
-            --highlight-bg: #fff8c5; /* 醒目提示背景 */
-        }
-
-        /* --- 暗色模式變數 (支援手動切換與系統預設) --- */
-        /* 當使用者手動強制切換為暗色時 */
-        [data-theme="dark"] {
-            --bg-color: #0d1117;
-            --text-color: #c9d1d9;
-            --text-muted: #8b949e;
-            --card-bg: #161b22;
-            --link-color: #79c0ff;
-            --border-color: #30363d;
-            --btn-bg: #238636;
-            --btn-hover: #2ea043;
-            --btn-text: #ffffff;
-            --tag-bg: #1f2428;
-            --tag-text: #79c0ff;
-            --table-header: #21262d;
-            --highlight-bg: #3a2e05;
-        }
-
-        /* 當系統預設為暗色，且使用者沒有強制切換為亮色時 */
-        @media (prefers-color-scheme: dark) {
-            :root:not([data-theme="light"]) {
-                --bg-color: #0d1117;
-                --text-color: #c9d1d9;
-                --text-muted: #8b949e;
-                --card-bg: #161b22;
-                --link-color: #79c0ff;
-                --border-color: #30363d;
-                --btn-bg: #238636;
-                --btn-hover: #2ea043;
-                --btn-text: #ffffff;
-                --tag-bg: #1f2428;
-                --tag-text: #79c0ff;
-                --table-header: #21262d;
-                --highlight-bg: #3a2e05;
-            }
-        }
-
-        /* --- 切換按鈕樣式 (固定在畫面右下角) --- */
-        .theme-toggle-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: transform 0.2s ease, background-color 0.3s ease;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .theme-toggle-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* 基礎排版 */
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        h1, h2, h3 { 
-            color: var(--text-color); 
-            margin-top: 0; 
-        }
-        
-        a { 
-            color: var(--link-color); 
-            text-decoration: none; 
-            font-weight: 600; 
-            transition: color 0.2s; 
-        }
-        
-        a:hover { 
-            text-decoration: underline; 
-        }
-        
-        /* 頂部標題 */
-        .header-section { 
-            text-align: center; 
-            margin-bottom: 50px; 
-        }
-        
-        .header-section h1 { 
-            font-size: 2.5em; 
-            margin-bottom: 10px; 
-        }
-        
-        .header-section p { 
-            font-size: 1.2em; 
-            color: var(--text-muted); 
-        }
-
-        /* 卡片設計 */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .card:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1); 
-        }
-        
-        .card h2 { 
-            display: flex; 
-            align-items: center; 
-            font-size: 1.5em; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 10px; 
-            margin-bottom: 20px;
-        }
-        
-        .card-list { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-        }
-        
-        .card-list > li { 
-            margin-bottom: 20px; 
-            padding-bottom: 20px; 
-            border-bottom: 1px dashed var(--border-color); 
-        }
-        
-        .card-list > li:last-child { 
-            margin-bottom: 0; 
-            padding-bottom: 0; 
-            border-bottom: none; 
-        }
-        
-        .card-list strong { 
-            font-size: 1.1em; 
-        }
-        
-        .card-list p { 
-            margin: 8px 0 0 0; 
-            color: var(--text-muted); 
-            font-size: 0.95em; 
-        }
-
-        /* 特色清單專用 */
-        .feature-list { 
-            list-style: disc; 
-            padding-left: 20px; 
-            margin: 0; 
-            color: var(--text-muted); 
-            font-size: 0.95em;
-        }
-        
-        .feature-list li { 
-            margin-bottom: 8px; 
-        }
-        
-        .feature-list b { 
-            color: var(--text-color); 
-        }
-
-        /* 致謝名單專用排版 (多層次清單) */
-        .thanks-list { 
-            list-style: none; 
-            padding-left: 0; 
-            margin-top: 10px; 
-        }
-        
-        .thanks-list > li { 
-            margin-bottom: 12px; 
-        }
-        
-        .sub-thanks-list { 
-            list-style-type: circle; 
-            padding-left: 20px; 
-            margin-top: 5px; 
-            margin-bottom: 10px; 
-            color: var(--text-color); 
-        }
-        
-        .sub-thanks-list li { 
-            margin-bottom: 4px; 
-            border: none; 
-            padding-bottom: 0; 
-            font-size: 0.95em; 
-        }
-
-        /* 圖片排版 */
-        .memory-img { 
-            max-width: 100%; 
-            height: auto; 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            margin-top: 15px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-            display: block;
-        }
-        
-        /* 按鈕與標籤 */
-        .btn {
-            display: inline-block;
-            padding: 10px 24px;
-            background-color: var(--btn-bg);
-            color: var(--btn-text) !important;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.2s;
-            text-align: center;
-        }
-        
-        .btn:hover { 
-            background-color: var(--btn-hover); 
-            text-decoration: none; 
-        }
-        
-        .tag {
-            display: inline-block; 
-            padding: 2px 8px; 
-            font-size: 0.8em; 
-            border-radius: 12px;
-            background-color: var(--tag-bg); 
-            color: var(--tag-text); 
-            margin-right: 8px; 
-            font-weight: normal;
-        }
-        
-        /* 折疊區塊與表格設計 */
-        .code-block { 
-            background-color: var(--table-header); 
-            padding: 2px 6px; 
-            border-radius: 4px; 
-            font-family: monospace; 
-            font-size: 0.9em; 
-            color: var(--link-color); 
-        }
-        
-        details {
-            background-color: var(--table-header);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px 20px;
-            margin-bottom: 15px;
-        }
-        
-        summary {
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-            font-size: 1.1em;
-            color: var(--link-color);
-        }
-        
-        summary:hover { 
-            text-decoration: underline; 
-        }
-        
-        details p, details ul, details ol { 
-            margin-top: 15px; 
-            font-size: 0.95em; 
-            color: var(--text-color);
-        }
-        
-        .table-container { 
-            overflow-x: auto; 
-            margin-top: 10px; 
-        }
-        
-        .device-table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            font-size: 0.9em; 
-            min-width: 500px; 
-        }
-        
-        .device-table th, .device-table td { 
-            border-bottom: 1px solid var(--border-color); 
-            padding: 8px 10px; 
-            text-align: left; 
-        }
-        
-        .device-table th { 
-            font-weight: bold; 
-            background-color: rgba(0,0,0,0.03); 
-        }
-        
-        .device-table tr:hover td { 
-            background-color: rgba(0,0,0,0.02); 
-        }
-
-        .footer { 
-            text-align: center; 
-            margin-top: 60px; 
-            font-size: 0.9em; 
-            color: var(--text-muted); 
-        }
-        
-        .quote-box { 
-            background-color: var(--bg-color); 
-            padding: 15px; 
-            border-left: 4px solid var(--link-color); 
-            border-radius: 4px; 
-            margin-top: 15px; 
-            font-size: 0.95em; 
-            color: var(--text-color);
-        }
-        
-        .highlight-box { 
-            background-color: var(--highlight-bg); 
-            border: 1px solid #d4a72c; 
-            padding: 15px; 
-            border-radius: 8px; 
-            margin-top: 20px;
-        }
-
-        /* 手機版排版微調 */
-        @media (max-width: 600px) {
-            .header-section h1 { 
-                font-size: 1.6em; 
-            }
-            .header-section p { 
-                font-size: 1em; 
-            }
-        }
+        :root { --bg-color: #f6f8fa; --text-color: #24292f; --text-muted: #57606a; --card-bg: #ffffff; --link-color: #0550ae; --border-color: #d0d7de; --btn-bg: #2da44e; --btn-hover: #2c974b; --btn-text: #ffffff; --tag-bg: #eaf5ff; --tag-text: #0550ae; --table-header: #f3f6f9; --highlight-bg: #fff8c5; }
+        [data-theme="dark"] { --bg-color: #0d1117; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #161b22; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #21262d; --highlight-bg: #3a2e05; }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg-color: #0d1117; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #161b22; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #21262d; --highlight-bg: #3a2e05; } }
+        .theme-toggle-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background-color 0.3s ease; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        .theme-toggle-btn:hover { transform: scale(1.1); }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 850px; margin: 0 auto; padding: 50px 20px; transition: background-color 0.3s ease, color 0.3s ease; }
+        h1, h2, h3 { color: var(--text-color); margin-top: 0; }
+        a { color: var(--link-color); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        a:hover { text-decoration: underline; }
+        .header-section { text-align: center; margin-bottom: 50px; }
+        .header-section h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header-section p { font-size: 1.2em; color: var(--text-muted); }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .card h2 { display: flex; align-items: center; font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .card-list { list-style: none; padding: 0; margin: 0; }
+        .card-list > li { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color); }
+        .card-list > li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .card-list strong { font-size: 1.1em; }
+        .card-list p { margin: 8px 0 0 0; color: var(--text-muted); font-size: 0.95em; }
+        .feature-list { list-style: disc; padding-left: 20px; margin: 0; color: var(--text-muted); font-size: 0.95em; }
+        .feature-list li { margin-bottom: 8px; }
+        .feature-list b { color: var(--text-color); }
+        .thanks-list { list-style: none; padding-left: 0; margin-top: 10px; }
+        .thanks-list > li { margin-bottom: 12px; }
+        .sub-thanks-list { list-style-type: circle; padding-left: 20px; margin-top: 5px; margin-bottom: 10px; color: var(--text-color); }
+        .sub-thanks-list li { margin-bottom: 4px; border: none; padding-bottom: 0; font-size: 0.95em; }
+        .memory-img { max-width: 100%; height: auto; border: 1px solid var(--border-color); border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; }
+        .btn { display: inline-block; padding: 10px 24px; background-color: var(--btn-bg); color: var(--btn-text) !important; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background-color 0.2s; text-align: center; }
+        .btn:hover { background-color: var(--btn-hover); text-decoration: none; }
+        .tag { display: inline-block; padding: 2px 8px; font-size: 0.8em; border-radius: 12px; background-color: var(--tag-bg); color: var(--tag-text); margin-right: 8px; font-weight: normal; }
+        .code-block { background-color: var(--table-header); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--link-color); }
+        details { background-color: var(--table-header); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 20px; margin-bottom: 15px; }
+        summary { font-weight: bold; cursor: pointer; outline: none; font-size: 1.1em; color: var(--link-color); }
+        summary:hover { text-decoration: underline; }
+        details p, details ul, details ol { margin-top: 15px; font-size: 0.95em; color: var(--text-color); }
+        .table-container { overflow-x: auto; margin-top: 10px; }
+        .device-table { width: 100%; border-collapse: collapse; font-size: 0.9em; min-width: 500px; }
+        .device-table th, .device-table td { border-bottom: 1px solid var(--border-color); padding: 8px 10px; text-align: left; }
+        .device-table th { font-weight: bold; background-color: rgba(0,0,0,0.03); }
+        .device-table tr:hover td { background-color: rgba(0,0,0,0.02); }
+        .footer { text-align: center; margin-top: 60px; font-size: 0.9em; color: var(--text-muted); }
+        .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.95em; color: var(--text-color); }
+        .highlight-box { background-color: var(--highlight-bg); border: 1px solid #d4a72c; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        @media (max-width: 600px) { .header-section h1 { font-size: 1.6em; } .header-section p { font-size: 1em; } }
     </style>
 </head>
 <body>
@@ -668,45 +357,30 @@
     </button>
 
     <script>
-        // 自動取得目前年份並填入 Footer
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        // --- 以下為亮暗色切換邏輯 ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const rootElement = document.documentElement; // 獲取 <html> 標籤
-        
-        // 檢查瀏覽器內存是否有使用者先前的設定
-        const currentTheme = localStorage.getItem('theme');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        // 1. 頁面載入時的初始化
-        if (currentTheme === 'dark') {
-            rootElement.setAttribute('data-theme', 'dark');
-            themeToggleBtn.textContent = '☀️';
-        } else if (currentTheme === 'light') {
-            rootElement.setAttribute('data-theme', 'light');
-            themeToggleBtn.textContent = '🌙';
-        } else {
-            // 如果沒有儲存記錄，就看系統當下是什麼模式來決定圖示
-            themeToggleBtn.textContent = prefersDarkScheme.matches ? '☀️' : '🌙';
+        document.getElementById("year").textContent=new Date().getFullYear();
+        const themeToggleBtn=document.getElementById('theme-toggle');
+        const rootElement=document.documentElement;
+        const currentTheme=localStorage.getItem('theme');
+        const prefersDarkScheme=window.matchMedia('(prefers-color-scheme: dark)');
+        if(currentTheme==='dark'){
+            rootElement.setAttribute('data-theme','dark');
+            themeToggleBtn.textContent='☀️';
+        }else if(currentTheme==='light'){
+            rootElement.setAttribute('data-theme','light');
+            themeToggleBtn.textContent='🌙';
+        }else{
+            themeToggleBtn.textContent=prefersDarkScheme.matches?'☀️':'🌙';
         }
-
-        // 2. 監聽按鈕點擊事件
-        themeToggleBtn.addEventListener('click', function() {
-            // 確認目前的實際狀態（有 data-theme 屬性就看屬性，沒有就看系統）
-            let isDark = rootElement.getAttribute('data-theme') === 'dark' || 
-                         (!rootElement.hasAttribute('data-theme') && prefersDarkScheme.matches);
-
-            if (isDark) {
-                // 切換成亮色
-                rootElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.textContent = '🌙';
-            } else {
-                // 切換成暗色
-                rootElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.textContent = '☀️';
+        themeToggleBtn.addEventListener('click',()=>{
+            let isDark=rootElement.getAttribute('data-theme')==='dark'||(!rootElement.hasAttribute('data-theme')&&prefersDarkScheme.matches);
+            if(isDark){
+                rootElement.setAttribute('data-theme','light');
+                localStorage.setItem('theme','light');
+                themeToggleBtn.textContent='🌙';
+            }else{
+                rootElement.setAttribute('data-theme','dark');
+                localStorage.setItem('theme','dark');
+                themeToggleBtn.textContent='☀️';
             }
         });
     </script>
