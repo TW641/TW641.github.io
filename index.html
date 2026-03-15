@@ -154,22 +154,31 @@
         .footer { text-align: center; margin-top: 60px; font-size: 0.9em; color: var(--text-muted); }
         .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.95em; color: var(--text-color); }
         .highlight-box { background-color: var(--highlight-bg); border: 1px solid #d4a72c; padding: 15px; border-radius: 8px; margin-top: 20px; }
-        .poetic-subtitle { font-size: 1.2em; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        
+        /* 副標題預設為電腦版：置中對齊 */
+        .subtitle-wrapper { display: flex; justify-content: center; }
+        .poetic-subtitle { font-size: 1.2em; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; text-align: center; }
         .poetic-line { display: block; margin-bottom: 5px; }
         .poetic-part { display: inline-block; }
-        @media (max-width: 600px) { .header-section h1 { font-size: 3.5vw; } .poetic-subtitle { font-size: 1.05em; } .poetic-part { display: block; } }
+
+        /* 手機版分流設計：大標題縮小防跑版，副標題改靠左對齊 */
+        @media (max-width: 600px) { 
+            .header-section h1 { font-size: 3.5vw; } 
+            .poetic-subtitle { font-size: 1.05em; text-align: left; } 
+            .poetic-part { display: block; } 
+        }
     </style>
 </head>
 <body>
 
     <header class="header-section">
         <h1>
-            <span style="display: inline-block; white-space: nowrap;">🇹🇼 TW641 Padavan CAKE OpenWrt 25.12 Dave's Guitar</span><br>
-            <span style="display: inline-block; white-space: nowrap;">開源路由器韌體 與 Dave Täht 數位典藏博物館🏛️</span>
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">🇹🇼 TW641 Padavan CAKE OpenWrt 25.12 Dave's Guitar</span>
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">開源路由器韌體 與 Dave Täht 數位典藏博物館🏛️</span>
         </h1>
         
-        <div style="display: flex; justify-content: center;">
-            <div class="poetic-subtitle" style="text-align: left;">
+        <div class="subtitle-wrapper">
+            <div class="poetic-subtitle">
                 <span class="poetic-line">
                     <span class="poetic-part">輸入冰冷樸實的文字，</span><span class="poetic-part">道出溫馨動人的故事</span>
                 </span>
