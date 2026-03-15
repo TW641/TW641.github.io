@@ -13,7 +13,7 @@
     <meta name="google-site-verification" content="OV7xROgDy7S6bx5Mrsf5hefCfoKkRYgE0F9raeoZ8qc" />
     
     <meta name="description" content="TW641 Padavan CAKE 開源路由器韌體與 Dave Täht 數位典藏博物館。提供 142 款路由器的 Padavan-CAKE 雲端編譯懶人包，並紀念 OpenWrt 25.12 Dave's Guitar 傳奇。徹底終結網路延遲，為對抗 Bufferbloat 而生。">
-    <meta name="keywords" content="Padavan, CAKE, SQM, Bufferbloat, 路由器, 韌體, 開源, 博物館, 數位典藏, 展覽, 圖書館, OpenWrt, 25.12, Dave's Guitar, TW641, 雲端編譯, sch_cake, mobile01, ptt, right.com.cn, 恩山, 刷機, 第三方韌體, 網路優化, 降低延遲, K2P, DIR-878, MI-R3G, GL.iNet, 移植">
+    <meta name="keywords" content="Padavan, CAKE, SQM, AQM, QoS, Bufferbloat, 路由器, 韌體, 開源, 博物館, 數位典藏, 展覽, 圖書館, OpenWrt, 25.12, Dave's Guitar, TW641, 雲端編譯, sch_cake, mobile01, ptt, right.com.cn, 恩山, 刷機, 網路優化, 降低延遲, LibreQoS, LibreQoE, GL.iNet, 移植">
     <meta name="author" content="TW641">
     <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -154,27 +154,19 @@
         .footer { text-align: center; margin-top: 60px; font-size: 0.9em; color: var(--text-muted); }
         .quote-box { background-color: var(--bg-color); padding: 15px; border-left: 4px solid var(--link-color); border-radius: 4px; margin-top: 15px; font-size: 0.95em; color: var(--text-color); }
         .highlight-box { background-color: var(--highlight-bg); border: 1px solid #d4a72c; padding: 15px; border-radius: 8px; margin-top: 20px; }
-        
-        /* 副標題預設為電腦版：置中對齊 */
         .subtitle-wrapper { display: flex; justify-content: center; }
         .poetic-subtitle { font-size: 1.2em; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; text-align: center; }
         .poetic-line { display: block; margin-bottom: 5px; }
         .poetic-part { display: inline-block; }
-
-        /* 手機版分流設計：大標題縮小防跑版，副標題改靠左對齊 */
-        @media (max-width: 600px) { 
-            .header-section h1 { font-size: 3.5vw; } 
-            .poetic-subtitle { font-size: 1.05em; text-align: left; } 
-            .poetic-part { display: block; } 
-        }
+        @media (max-width: 600px) { .header-section h1 { font-size: 3.5vw; } .poetic-subtitle { font-size: 1.05em; text-align: left; } .poetic-part { display: block; } }
     </style>
 </head>
 <body>
 
     <header class="header-section">
         <h1>
-            <span style="display: block; margin: 0 auto; white-space: nowrap;">🇹🇼 TW641 Padavan CAKE OpenWrt 25.12 Dave's Guitar</span>
-            <span style="display: block; margin: 0 auto; white-space: nowrap;">開源路由器韌體 與 Dave Täht 數位典藏博物館🏛️</span>
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">🇹🇼 TW641 Padavan CAKE</span>
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">OpenWrt 25.12 Dave's Guitar 開源路由器韌體 與 Dave Täht 數位典藏博物館 🏛️</span>
         </h1>
         
         <div class="subtitle-wrapper">
@@ -189,7 +181,7 @@
                     <span class="poetic-part">"The darker the night, </span><span class="poetic-part">the brighter the Täht."</span>
                 </span>
                 <span class="poetic-line">
-                    <span class="poetic-part">用職人精神對抗 Bufferbloat，</span><span class="poetic-part">為老舊路由器注入新生命</span>
+                    <span class="poetic-part">用職人精神對抗 Bufferbloat，</span><span class="poetic-part">讓星辰在開源宇宙中持續閃耀</span>
                 </span>
             </div>
         </div>
