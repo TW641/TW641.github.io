@@ -160,6 +160,8 @@
         .poetic-part { display: inline-block; }
         .hero-title-3 { display: flex; justify-content: center; margin-top: 8px; flex-wrap: nowrap; }
         @media (max-width: 600px) { .header-section h1 { font-size: 1.6em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } }
+        .glow-text { color: var(--link-color); font-weight: bold; text-shadow: 0 0 8px rgba(5, 80, 174, 0.4); transition: text-shadow 0.3s ease, color 0.3s ease; }
+        [data-theme="dark"] .glow-text { color: #79c0ff; text-shadow: 0 0 10px rgba(121, 192, 255, 0.6); }
     </style>
 </head>
 <body>
@@ -183,7 +185,7 @@
                 </span>
                 <span class="poetic-line" style="margin: 8px 0;">
                     <span class="code-block" style="display: inline-block; padding: 4px 10px; font-size: 1.4em;">
-                        <span style="display: inline-block;"><b><i>"The darker the night,&nbsp;</i></b></span><span style="display: inline-block;"><b><i>the brighter the Täht."</i></b></span>
+                        <span class="glow-text" style="display: inline-block;"><b><i>"The darker the night,&nbsp;</i></b></span><span class="glow-text" style="display: inline-block;"><b><i>the brighter the Täht."</i></b></span>
                     </span>
                 </span>
                 <span class="poetic-line">
@@ -742,6 +744,14 @@
     </main>
 
     <footer class="footer">
+        <div class="memorial-section" style="margin-bottom: 20px; font-size: 0.95em; color: var(--text-color);">
+            <p style="margin: 5px 0;">
+                ⭐ <span class="glow-text">Dave Täht</span> passed away on <span class="glow-text">2025.04.01</span>. <span class="glow-text">Today</span> is <span id="current-date" class="glow-text"></span>.
+            </p>
+            <p style="margin: 5px 0;">
+                🌠 Illuminating the open-source universe for <strong id="total-days" class="glow-text" style="font-size: 1.1em;"></strong> days <span style="color: var(--text-muted);">(<span id="ymd-breakdown"></span>)</span>.
+            </p>
+        </div>
         <p>© <span id="year"></span> TW641. Built with passion for a Bufferbloat-free world.</p>
     </footer>
 
@@ -751,6 +761,42 @@
 
     <script>
         document.getElementById("year").textContent=new Date().getFullYear();
+        
+        const startDate=new Date('2025-04-01T00:00:00');
+        const now=new Date();
+        const currentYear=now.getFullYear();
+        const currentMonth=String(now.getMonth()+1).padStart(2,'0');
+        const currentDay=String(now.getDate()).padStart(2,'0');
+        
+        document.getElementById("current-date").textContent=`${currentYear}.${currentMonth}.${currentDay}`;
+        
+        const diffTime=now-startDate;
+        const totalDays=Math.floor(diffTime/(1000*60*60*24));
+        
+        if(totalDays>=0){
+            document.getElementById("total-days").textContent=totalDays;
+            let years=currentYear-startDate.getFullYear();
+            let months=now.getMonth()-startDate.getMonth();
+            let days=now.getDate()-startDate.getDate();
+            if(days<0){
+                months--;
+                const prevMonth=new Date(now.getFullYear(),now.getMonth(),0);
+                days+=prevMonth.getDate();
+            }
+            if(months<0){
+                years--;
+                months+=12;
+            }
+            let breakdownStr='';
+            if(years>0) breakdownStr+=`<span class="glow-text">${years} 年 (Y)</span> `;
+            if(months>0||years>0) breakdownStr+=`<span class="glow-text">${months} 個月 (M)</span> `;
+            breakdownStr+=`<span class="glow-text">${days} 天 (D)</span>`;
+            document.getElementById("ymd-breakdown").innerHTML=breakdownStr;
+        }else{
+            document.getElementById("total-days").textContent="0";
+            document.getElementById("ymd-breakdown").innerHTML="<span class='glow-text'>0 天 (D)</span>";
+        }
+
         const themeToggleBtn=document.getElementById('theme-toggle');
         const rootElement=document.documentElement;
         const currentTheme=localStorage.getItem('theme');
