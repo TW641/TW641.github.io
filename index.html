@@ -112,14 +112,14 @@
 
     <style>
         :root { --bg-color: #f6f8fa; --text-color: #24292f; --text-muted: #57606a; --card-bg: #ffffff; --link-color: #0550ae; --border-color: #d0d7de; --btn-bg: #2da44e; --btn-hover: #2c974b; --btn-text: #ffffff; --tag-bg: #eaf5ff; --tag-text: #0550ae; --table-header: #f3f6f9; --highlight-bg: #fff8c5; }
-        [data-theme="dark"] { --bg-color: #0d1117; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #161b22; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #21262d; --highlight-bg: #3a2e05; }
-        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg-color: #0d1117; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #161b22; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #21262d; --highlight-bg: #3a2e05; } }
+        [data-theme="dark"] { --bg-color: #05050a; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #0d1117; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #161b22; --highlight-bg: #3a2e05; }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg-color: #05050a; --text-color: #c9d1d9; --text-muted: #8b949e; --card-bg: #0d1117; --link-color: #79c0ff; --border-color: #30363d; --btn-bg: #238636; --btn-hover: #2ea043; --btn-text: #ffffff; --tag-bg: #1f2428; --tag-text: #79c0ff; --table-header: #161b22; --highlight-bg: #3a2e05; } }
         .theme-toggle-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, background-color 0.3s ease; z-index: 9999; display: flex; align-items: center; justify-content: center; }
         .theme-toggle-btn:hover { transform: scale(1.1); }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 850px; margin: 0 auto; padding: 50px 20px; transition: background-color 0.3s ease, color 0.3s ease; }
         h1, h2, h3 { color: var(--text-color); margin-top: 0; }
-        a { color: var(--link-color); text-decoration: none; font-weight: 600; transition: color 0.2s; }
-        a:hover { text-decoration: underline; }
+        a { color: var(--link-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        a:not(.btn):hover { background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59, #12c2e9); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: underline; text-decoration-color: #c471ed; animation: flowGradient 3s linear infinite; }
         .header-section { text-align: center; margin-bottom: 50px; }
         .header-section h1 { font-size: 2.5em; margin-bottom: 15px; line-height: 1.3; text-align: center; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
@@ -159,19 +159,35 @@
         .poetic-line { display: block; margin-bottom: 5px; }
         .poetic-part { display: inline-block; }
         .hero-title-3 { display: flex; justify-content: center; margin-top: 8px; flex-wrap: nowrap; }
-        @media (max-width: 600px) { .header-section h1 { font-size: 1.5em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } }
+        .desktop-inline { display: inline; }
+        @media (max-width: 600px) { .header-section h1 { font-size: 1.5em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } .desktop-inline { display: block; margin-top: 5px; } }
         .glow-text { color: var(--link-color); font-weight: bold; text-shadow: 0 0 8px rgba(5, 80, 174, 0.4); transition: text-shadow 0.3s ease, color 0.3s ease; }
-        [data-theme="dark"] .glow-text { color: #79c0ff; text-shadow: 0 0 10px rgba(121, 192, 255, 0.6); }
+        [data-theme="dark"] .glow-text { color: #e0f2fe; text-shadow: 0 0 8px rgba(14,165,233,0.8), 0 0 16px rgba(14,165,233,0.6), 0 0 24px rgba(14,165,233,0.4); }
+        .gradient-text { color: #8b5cf6 !important; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899, #3b82f6) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; font-weight: bold; display: inline-block; animation: flowGradient 5s linear infinite !important; }
+        [data-theme="dark"] .gradient-text { background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59, #12c2e9) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; animation: flowGradient 5s linear infinite !important; }
+        @keyframes flowGradient { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+        .emoji { -webkit-text-fill-color: initial !important; background: none !important; color: initial !important; }
     </style>
 </head>
 <body>
 
     <header class="header-section">
         <h1>
-            <span style="display: block; margin: 0 auto; white-space: nowrap;">🇹🇼 TW641 Padavan CAKE 🍰</span>
-            <span style="display: block; margin: 0 auto; white-space: nowrap;">OpenWrt 25.12 <span class="glow-text">Dave's Guitar</span> 🎸</span>
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">
+                <span class="emoji">🇹🇼</span>&nbsp;<span class="gradient-text">TW641&nbsp;Padavan&nbsp;CAKE</span>&nbsp;<span class="emoji">🍰</span>
+            </span>
+            
+            <span style="display: block; margin: 0 auto; white-space: nowrap;">
+                <span class="gradient-text">OpenWrt&nbsp;25.12</span>&nbsp;<span class="glow-text">Dave's&nbsp;Guitar</span>&nbsp;<span class="emoji">🎸</span>
+            </span>
+            
             <span class="hero-title-3">
-                <span style="white-space: nowrap;">開源路由器韌體 與 <span class="glow-text">Dave Täht</span>&nbsp;</span><span style="white-space: nowrap;">數位典藏博物館 🏛️</span>
+                <span style="white-space: nowrap;">
+                    <span class="gradient-text">開源路由器韌體&nbsp;與</span>&nbsp;<span class="glow-text">Dave&nbsp;Täht</span>&nbsp;
+                </span>
+                <span class="desktop-inline">
+                    <span class="gradient-text">數位典藏博物館</span>&nbsp;<span class="emoji">🏛️</span>
+                </span>
             </span>
         </h1>
         
@@ -185,18 +201,17 @@
                 </span>
                 <span class="poetic-line" style="margin: 8px 0;">
                     <span class="code-block" style="display: inline-block; padding: 4px 10px; font-size: 1.4em;">
-                        <span class="glow-text" style="display: inline-block;"><i>"The darker the night,&nbsp;</i></span><span class="glow-text" style="display: inline-block;"><i>the brighter the Täht."</i></span>
+                        <span class="glow-text" style="display: inline-block;"><i>"The&nbsp;darker&nbsp;the&nbsp;night,&nbsp;</i></span><span class="glow-text" style="display: inline-block;"><i>the&nbsp;brighter&nbsp;the&nbsp;Täht."</i></span>
                     </span>
                 </span>
                 <span class="poetic-line">
-                    <span class="poetic-part">用職人精神對抗 Bufferbloat，</span><span class="poetic-part">讓<span class="glow-text">星辰</span>在開源宇宙中持續閃耀</span>
+                    <span class="poetic-part">用職人精神對抗&nbsp;Bufferbloat，</span><span class="poetic-part">讓<span class="glow-text">星辰</span>在開源宇宙中持續閃耀</span>
                 </span>
             </div>
         </div>
         
         <div style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
-            <a href="/" class="btn" style="background-color: transparent; color: var(--text-color) !important; border: 1px solid var(--border-color);">🏛️ 返回 <span class="glow-text">Dave Täht</span> 數位典藏博物館</a>
-            <a href="https://github.com/TW641" target="_blank" class="btn" style="background-color: var(--border-color); border-color: var(--border-color); color: var(--text-color) !important; transition: background-color 0.3s;" title="Target: Partner with acer!">⭐ 前往 GitHub 開源專案倉庫</a>
+            <a href="https://github.com/TW641" target="_blank" class="btn" style="background-color: var(--border-color); border-color: var(--border-color); color: var(--text-color) !important; transition: background-color 0.3s;">⭐&nbsp;追蹤我的&nbsp;GitHub&nbsp;(TW641)</a>
         </div>
     </header>
 
@@ -365,13 +380,13 @@
         </section>
 
         <section class="card">
-            <h2>💖 幕後故事與特別致謝 (Behind the Scenes & Credits)</h2>
+            <h2>💖 <span class="gradient-text">幕後故事與特別致謝 (Behind the Scenes & Credits)</span></h2>
             <p>這個專案的誕生，除了技術的積累，更離不開開源社群前輩們的啟發與無私奉獻。滿滿的感謝獻給以下所有人與組織：</p>
             
             <ul class="card-list">
                 <li>
                     <h3 style="margin-top: 10px; font-size: 1.4em;">
-                        ⭐ Light up the <span class="glow-text">Täht</span>: A Final Tribute<br>
+                        ⭐ <span class="gradient-text">Light up the</span> <span class="glow-text">Täht</span><span class="gradient-text">: A Final Tribute</span><br>
                         <span style="color: var(--text-muted); font-size: 0.8em; font-weight: normal;">（點亮<span class="glow-text">星辰</span>：最後的致敬）</span>
                     </h3>
 
@@ -388,7 +403,7 @@
                     </p>
 
                     <h4 style="margin-top: 25px; font-size: 1.2em;">
-                        📜 The Lore of an Internet Hero<br>
+                        📜 <span class="gradient-text">The Lore of an Internet Hero</span><br>
                         <span style="color: var(--text-muted); font-size: 0.85em; font-weight: normal;">（一位網際網路英雄的傳奇故事）</span>
                     </h4>
 
@@ -435,7 +450,7 @@
                     </div>
 
                     <h4 style="margin-top: 25px; font-size: 1.2em;">
-                        🌠 "We Are All <span class="glow-text">Starstuff</span>" (The Final Reunion)<br>
+                        🌠 <span class="gradient-text">"We Are All</span> <span class="glow-text">Starstuff</span><span class="gradient-text">" (The Final Reunion)</span><br>
                         <span style="color: var(--text-muted); font-size: 0.85em; font-weight: normal;">（「我們都是<span class="glow-text">星塵</span>」— 最終的團聚）</span>
                     </h4>
 
@@ -472,7 +487,7 @@
                     </div>
 
                     <h4 style="margin-top: 25px; font-size: 1.2em;">
-                        🎼 Coda: The Grand Finale (<span class="glow-text">Dave's Guitar</span> & Fool)<br>
+                        🎼 <span class="gradient-text">Coda: The Grand Finale (</span><span class="glow-text">Dave's Guitar</span> <span class="gradient-text">& Fool)</span><br>
                         <span style="color: var(--text-muted); font-size: 0.85em; font-weight: normal;">（終章：盛大的落幕 — <span class="glow-text">Dave</span> 的吉他與憨人）</span>
                     </h4>
 
@@ -658,7 +673,7 @@
                     <hr style="border:0; border-top:1px dashed var(--border-color); margin: 30px 0;">
 
                     <h4 style="margin-top: 25px; font-size: 1.2em;">
-                        🔗 References & Tributes<br>
+                        🔗 <span class="gradient-text">References & Tributes</span><br>
                         <span style="color: var(--text-muted); font-size: 0.85em; font-weight: normal;">（參考文獻與致敬）</span>
                     </h4>
                     <ul class="feature-list" style="padding-left: 0; list-style-position: inside;">
@@ -685,7 +700,7 @@
                 </li>
 
                 <li>
-                    🕊️ <strong>致敬開源先驅：In Loving Memory of <span class="glow-text">Dave Täht</span> (1965–2025)</strong>
+                    🕊️ <strong><span class="gradient-text">致敬開源先驅：In Loving Memory of</span> <span class="glow-text">Dave Täht</span> <span class="gradient-text">(1965–2025)</span></strong>
                     <div class="quote-box" style="margin-top: 10px;">
                         <p style="margin-top: 0;"><em>"When you miss <span class="glow-text">Dave</span>, modprobe sch_cake!"</em></p>
                         <p><span class="glow-text">Dave</span> 是一位偉大的網路技術開源貢獻者。2016 年他曾預言 MT76 會是開源網路新星，但苦尋不到合適設備測試。幾年後的今天，我透過本專案讓成千上萬台基於 MediaTek (MT76) 的設備成功跑起他撰寫的 CAKE 演算法。His wish, I finished.</p>
@@ -694,7 +709,7 @@
                 </li>
 
                 <li>
-                    🎞️ <strong>特別回憶錄：那些年我們一起搞的第三方固件</strong>
+                    🎞️ <strong><span class="gradient-text">特別回憶錄：那些年我們一起搞的第三方固件</span></strong>
                     <p>其實當年我是負責 Tomato Phoenix 不死鳥的繁體中文翻譯。下方附上當年 Tomato Phoenix 不死鳥的百度網盤下載連結與歷史截圖：<br>
                     <a href="http://pan.baidu.com/s/1jIGpbQe" target="_blank">🔗 http://pan.baidu.com/s/1jIGpbQe</a></p>
                     
@@ -712,25 +727,25 @@
                 </li>
 
                 <li>
-                    🤝 <strong>特別致謝名單 (Special Acknowledgments)</strong>
+                    🤝 <strong><span class="gradient-text">特別致謝名單 (Special Acknowledgments)</span></strong>
                     <p>感謝以下企業、組織、前輩與夥伴在開源精神、技術合作、無私引薦、硬體贊助與後勤支援上的啟發與貢獻：</p>
                     <ul class="thanks-list">
-                        <li>🏛️ <strong>企業與組織：</strong>
+                        <li>🏛️ <strong><span class="gradient-text">企業與組織：</span></strong>
                             <ul class="sub-thanks-list">
-                                <li><a href="https://www.gl-inet.cn/" target="_blank">GL.iNet - 深圳市广联智通科技有限公司</a></li>
-                                <li><a href="https://www.gl-inet.com/" target="_blank">GL.iNet - GL Technologies (Hong Kong) Limited</a></li>
-                                <li><a href="https://libreqos.io/" target="_blank">LibreQoS - LibreQoE, LLC</a></li>
+                                <li><a href="https://www.gl-inet.cn/" target="_blank" class="gradient-text">GL.iNet - 深圳市广联智通科技有限公司</a></li>
+                                <li><a href="https://www.gl-inet.com/" target="_blank" class="gradient-text">GL.iNet - GL Technologies (Hong Kong) Limited</a></li>
+                                <li><a href="https://libreqos.io/" target="_blank" class="gradient-text">LibreQoS - LibreQoE, LLC</a></li>
                             </ul>
                         </li>
-                        <li>💡 <strong>關鍵推手與夥伴 (按字母排列)：</strong>
+                        <li>💡 <strong><span class="gradient-text">關鍵推手與夥伴 (按字母排列)：</span></strong>
                             <ul class="sub-thanks-list">
-                                <li>Alfie Zhao</li>
-                                <li>Allen Liu</li>
-                                <li><span class="glow-text">Dave Täht</span></li>
-                                <li>Frantisek Borsik (Frank)</li>
-                                <li>Jacqueline Wang</li>
-                                <li>Wingsley Yik</li>
-                                <li>佐须之男 (ForgotFun)</li>
+                                <li><span class="gradient-text">Alfie Zhao</span></li>
+                                <li><span class="gradient-text">Allen Liu</span></li>
+                                <li><span class="glow-text">Dave Täht</span> </li>
+                                <li><span class="gradient-text">Frantisek Borsik (Frank)</span></li>
+                                <li><span class="gradient-text">Jacqueline Wang</span></li>
+                                <li><span class="gradient-text">Wingsley Yik</span></li>
+                                <li><span class="gradient-text">佐须之男 (ForgotFun)</span></li>
                             </ul>
                         </li>
                     </ul>
@@ -749,13 +764,13 @@
     <footer class="footer">
         <div class="memorial-section" style="margin-bottom: 20px; font-size: 0.95em; color: var(--text-color);">
             <p style="margin: 5px 0;">
-                ⭐ <span class="glow-text">Dave Täht</span> passed away on <span class="glow-text">2025.04.01</span>. <span class="glow-text">Today</span> is <span id="current-date" class="glow-text"></span>.
+                ⭐&nbsp;<span class="glow-text">Dave&nbsp;Täht</span>&nbsp;passed&nbsp;away&nbsp;on&nbsp;<span class="glow-text">2025.04.01</span>.&nbsp;<span class="glow-text">Today</span>&nbsp;is&nbsp;<span id="current-date" class="glow-text"></span>.
             </p>
             <p style="margin: 5px 0;">
-                🌠 Illuminating the open-source universe for <strong id="total-days" class="glow-text" style="font-size: 1.1em;"></strong> days <span style="color: var(--text-muted);">(<span id="ymd-breakdown"></span>)</span>.
+                🌠&nbsp;Illuminating&nbsp;the&nbsp;open-source&nbsp;universe&nbsp;for&nbsp;<strong id="total-days" class="glow-text" style="font-size: 1.1em;"></strong>&nbsp;days&nbsp;<span style="color: var(--text-muted);">(<span id="ymd-breakdown"></span>)</span>.
             </p>
         </div>
-        <p>© <span id="year"></span> TW641. Built with passion for a Bufferbloat-free world.</p>
+        <p>©&nbsp;<span id="year"></span>&nbsp;TW641.&nbsp;Built&nbsp;with&nbsp;passion&nbsp;for&nbsp;a&nbsp;Bufferbloat-free&nbsp;world.</p>
     </footer>
 
     <button id="theme-toggle" class="theme-toggle-btn" aria-label="切換亮暗色模式" title="切換亮暗色模式">
