@@ -161,8 +161,8 @@
         .hero-title-3 { display: flex; justify-content: center; margin-top: 8px; flex-wrap: nowrap; }
         .desktop-inline { display: inline; }
         @media (max-width: 600px) { .header-section h1 { font-size: 1.5em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } .desktop-inline { display: block; margin-top: 5px; } }
-        .glow-text { color: var(--link-color); font-weight: bold; text-shadow: 0 0 8px rgba(5, 80, 174, 0.3); transition: text-shadow 0.3s ease, color 0.3s ease; }
-        [data-theme="dark"] .glow-text { color: #79c0ff; text-shadow: 0 0 4px rgba(121, 192, 255, 0.5), 0 0 12px rgba(121, 192, 255, 0.25); }
+        .glow-text { color: var(--link-color); font-weight: bold; text-shadow: 0 0 8px rgba(5, 80, 174, 0.6); transition: text-shadow 0.3s ease, color 0.3s ease; }
+        [data-theme="dark"] .glow-text { color: #79c0ff; text-shadow: 0 0 8px rgba(121, 192, 255, 0.8), 0 0 16px rgba(121, 192, 255, 0.5); }
         .gradient-text { color: #8b5cf6 !important; background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899, #3b82f6) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; font-weight: bold; display: inline-block; animation: flowGradient 5s linear infinite !important; }
         [data-theme="dark"] .gradient-text { background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59, #12c2e9) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; animation: flowGradient 5s linear infinite !important; }
         @keyframes flowGradient { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
@@ -181,12 +181,12 @@
                 <span class="gradient-text">OpenWrt&nbsp;25.12</span>&nbsp;<span class="glow-text">Dave's&nbsp;Guitar</span>&nbsp;<span class="emoji">🎸</span>
             </span>
             
-            <span class="hero-title-3">
-                <span style="white-space: nowrap;">
-                    <span class="gradient-text">開源路由器韌體 與</span> <span class="glow-text">Dave&nbsp;Täht</span>
+            <span class="hero-title-3" style="line-height: 1.5;">
+                <span style="display: inline-block; white-space: nowrap;">
+                    <span class="gradient-text">開源路由器韌體</span> 與 <span class="glow-text">Dave&nbsp;Täht</span>
                 </span>
-                <span class="desktop-inline">
-                    <span class="gradient-text">數位典藏博物館</span>&nbsp;<span class="emoji">🏛️</span>
+                <span style="display: inline-block; white-space: nowrap;">
+                    <span class="gradient-text">數位典藏博物館</span> <span class="emoji">🏛️</span>
                 </span>
             </span>
         </h1>
@@ -211,7 +211,7 @@
         </div>
         
         <div style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
-            <a href="https://github.com/TW641" target="_blank" class="btn" style="background-color: var(--border-color); border-color: var(--border-color); color: var(--text-color) !important; transition: background-color 0.3s;">⭐&nbsp;追蹤我的&nbsp;GitHub&nbsp;(TW641)</a>
+            <a href="https://github.com/TW641" target="_blank" class="btn" style="background-color: #80C343; border-color: #80C343; color: #111111 !important; transition: background-color 0.3s;" title="Target: Partner with acer!">⭐&nbsp;追蹤我的&nbsp;GitHub&nbsp;(TW641)</a>
         </div>
     </header>
 
