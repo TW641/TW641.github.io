@@ -254,13 +254,13 @@
         h1, h2, h3 { color: var(--text-color); margin-top: 0; }
         a { color: var(--link-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
         a:not(.btn):hover { background-image: linear-gradient(94.23deg, #5374fa 0%, #5374fa 12.41%, #fd9179 52.55%, #ff6969 89.95%, #5374fa 100%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-decoration: underline; text-decoration-color: #fd9179; animation: flowGradient 2.5s linear infinite; transition: filter 1s cubic-bezier(.16,1,.3,1), text-decoration-color 1s cubic-bezier(.16,1,.3,1); }
-        .gradient-text { background-image: linear-gradient(94.23deg, #5374fa 0%, #5374fa 12.41%, #fd9179 52.55%, #ff6969 89.95%, #5374fa 100%) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important; font-weight: bold; display: inline-block; animation: flowGradient 4.1s linear infinite !important; transition: filter 1s cubic-bezier(.16,1,.3,1) !important; }
-        [data-theme="dark"] .gradient-text { background-image: linear-gradient(94.23deg, #5374fa 0%, #5374fa 12.41%, #fd9179 52.55%, #ff6969 89.95%, #5374fa 100%) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important; animation: flowGradient 4.1s linear infinite !important; }
+        .gradient-text { background-image: linear-gradient(94.23deg, #5374fa 0%, #5374fa 12.41%, #fd9179 52.55%, #ff6969 89.95%, #5374fa 100%) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important; font-weight: bold; animation: flowGradient 4.1s linear infinite !important; transition: filter 1s cubic-bezier(.16,1,.3,1) !important; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+        [data-theme="dark"] .gradient-text { background-image: linear-gradient(94.23deg, #5374fa 0%, #5374fa 12.41%, #fd9179 52.55%, #ff6969 89.95%, #5374fa 100%) !important; background-size: 200% auto !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important; animation: flowGradient 4.1s linear infinite !important; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
         .header-section { text-align: center; margin-bottom: 50px; }
         .header-section h1 { font-size: 2.5em; margin-bottom: 15px; line-height: 1.3; text-align: center; }
         .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
         .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-        .card h2 { display: flex; align-items: center; font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .card h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; line-height: 1.4; }
         .card-list { list-style: none; padding: 0; margin: 0; }
         .card-list > li { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color); }
         .card-list > li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
@@ -297,8 +297,8 @@
         .hero-title-3 { display: flex; justify-content: center; margin-top: 8px; flex-wrap: nowrap; }
         .desktop-inline { display: inline; }
         @media (max-width: 600px) { .header-section h1 { font-size: 1.5em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } .desktop-inline { display: block; margin-top: 5px; } }
-        .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-you); font-weight: bold; animation: starTwinkleLight 4s linear infinite; }
-        [data-theme="dark"] .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-dave-taht); animation: starTwinkleDark 4s linear infinite; }
+        .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-you); font-weight: bold; text-shadow: 0 0 2px rgba(5, 80, 174, 0.2); transition: text-shadow 0.3s ease, color 0.3s ease; animation: starTwinkleLight 4s linear infinite; }
+        [data-theme="dark"] .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-dave-taht); text-shadow: 0 0 6px rgba(88, 166, 255, 0.6), 0 0 15px rgba(88, 166, 255, 0.2); transition: text-shadow 0.3s ease, color 0.3s ease; animation: starTwinkleDark 4s linear infinite; }
         a.glow-text:hover, .glow-text:hover { animation-duration: 1s !important; }
         @keyframes starTwinkleLight { 0%, 100% { opacity: 1; text-shadow: 0 0 5px rgba(5, 80, 174, 0.2); } 25% { opacity: 0.8; text-shadow: 0 0 6px rgba(5, 80, 174, 0.5); } }
         @keyframes starTwinkleDark { 0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(88, 166, 255, 0.6), 0 0 20px rgba(88, 166, 255, 0.2); } 25% { opacity: 0.8; text-shadow: 0 0 12px rgba(88, 166, 255, 0.8), 0 0 24px rgba(88, 166, 255, 0.4); } }
@@ -916,7 +916,10 @@
                 </span>
             </p>
             <p style="margin: 5px 0;">
-                🌠 Illuminating the open-source universe for <strong id="total-days" class="glow-text" style="font-size: 1.1em;"></strong> days <span style="color: var(--text-muted);">(<span id="ymd-breakdown"></span>)</span>.
+                🌠 Illuminating the open-source universe for <strong id="total-days" class="glow-text" style="font-size: 1.1em;"></strong> days 
+                <span style="display: inline-block; white-space: nowrap; color: var(--text-muted);">
+                (<span id="ymd-breakdown"></span>)
+                </span>.
             </p>
         </div>
         <p>© <span id="year"></span> TW641. Built with passion for a Bufferbloat-free world.</p>
