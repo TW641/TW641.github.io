@@ -128,7 +128,7 @@
          *   embed hidden coordinates that represent  : 2025.04.01
          * - Hidden Y-axis Coordinate                 : 20% (20)
          * - Atmospheric Refraction                   : 25% (25)
-         * (Halo blur radius expands exactly by 20% at the 25% timeline)
+         *   (Halo blur radius expands exactly by 20% at the 25% timeline)
          * - Base Twinkle (Breath) Rate               : 4.0s (04)
          * > Standard 4-second human breath cycle.
          * - Hover Active Twinkle Rate                : 1.0s (01)
@@ -136,10 +136,13 @@
          *
          * [ Easter Egg III : The Curator's Signature (TW641) ]
          * The elements serendipitously echo the developer's code: TW641
-         * - [ 五 ] : MAYDAY (五月天).
+         * - [ TW ] : The origin of the curator (Taiwan).
          * - [ 6 ]  : The 6 selected tracks in the Soundtrack of the Stars.
          * - [ 4 ]  : The 4th month (April).
          * - [ 1 ]  : The 1st day.
+         * > April 1st is April Fool's Day, and also the day Dave Täht passed away.
+         * > It perfectly echoes Mayday's (五月天) song "Fool" (憨人) —
+         * > Honoring and Commemorating Dave's selfless legacy and noble life mission.
          *
          * ---------------------------------------------------------
          *
@@ -294,14 +297,14 @@
         .hero-title-3 { display: flex; justify-content: center; margin-top: 8px; flex-wrap: nowrap; }
         .desktop-inline { display: inline; }
         @media (max-width: 600px) { .header-section h1 { font-size: 1.5em; } .poetic-subtitle { font-size: 1.05em; text-align: center; } .poetic-line .code-block { white-space: normal !important; max-width: 100%; box-sizing: border-box; line-height: 1.5; padding: 6px 10px !important; display: inline-block; } .poetic-part { display: inline-block; } .hero-title-3 { flex-wrap: wrap; } .desktop-inline { display: block; margin-top: 5px; } }
-        .glow-text { -webkit-text-fill-color: currentcolor !important; color: var(--color-you); font-weight: bold; animation: starTwinkleLight 4s linear infinite; }
-        [data-theme="dark"] .glow-text { -webkit-text-fill-color: currentcolor !important; color: var(--color-dave-taht); animation: starTwinkleDark 4s linear infinite; }
+        .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-you); font-weight: bold; animation: starTwinkleLight 4s linear infinite; }
+        [data-theme="dark"] .glow-text { -webkit-text-fill-color: currentColor !important; color: var(--color-dave-taht); animation: starTwinkleDark 4s linear infinite; }
         a.glow-text:hover, .glow-text:hover { animation-duration: 1s !important; }
         @keyframes starTwinkleLight { 0%, 100% { opacity: 1; text-shadow: 0 0 5px rgba(5, 80, 174, 0.2); } 25% { opacity: 0.8; text-shadow: 0 0 6px rgba(5, 80, 174, 0.5); } }
         @keyframes starTwinkleDark { 0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(88, 166, 255, 0.6), 0 0 20px rgba(88, 166, 255, 0.2); } 25% { opacity: 0.8; text-shadow: 0 0 12px rgba(88, 166, 255, 0.8), 0 0 24px rgba(88, 166, 255, 0.4); } }
         a.gradient-text:hover, .gradient-text:hover { animation: flowGradient 2.5s linear infinite !important; filter: brightness(1.15) drop-shadow(0 0 6px rgba(253, 145, 121, 0.4)); }
         @keyframes flowGradient { 0% { background-position: 0% 20%; } 100% { background-position: 200% 20%; } }
-        .emoji { -webkit-text-fill-color: initial !important; background: none !important; color: initial !important; }
+        .emoji { -webkit-text-fill-color: currentColor !important; background: none !important; color: currentColor !important; }
     </style>
 </head>
 <body>
