@@ -120,21 +120,44 @@
          * > The Nebula and Time Flow in this Time Machine act as
          *   a space-time accelerator pointing to     : 2025.04.01
          * - Hidden Y-axis Coordinate                 : 20% (20)
-         * - Hover Active Flow Rate                   : 2.5s (25)
-         * - Base Nebula Flow Rate                    : 4.1s (04.01)
+         * - Hover Active Time Flow Rate              : 2.5s (25)
+         * - Base Nebula Time Flow Rate               : 4.1s (04.01)
          *
          * [ Easter Egg II : Atmospheric Refraction & Digital Breath Rate ]
          * > The Atmospheric Refraction & Digital Breath Rate
          *   embed hidden coordinates that represent  : 2025.04.01
          * - Hidden Y-axis Coordinate                 : 20% (20)
          * - Atmospheric Refraction                   : 25% (25)
-         *   (Halo blur radius expands exactly by 20% at the 25% timeline)
+         * (Halo blur radius expands exactly by 20% at the 25% timeline)
          * - Base Twinkle (Breath) Rate               : 4.0s (04)
          * > Standard 4-second human breath cycle.
          * - Hover Active Twinkle Rate                : 1.0s (01)
          * > The 1Hz twinkle is Dave Täht saying hello to you!
          *
-         * [ Easter Egg III : The Curator's Signature (TW641) ]
+         * [ Easter Egg III : The Eternal Foundation & Timeline ]
+         * > The dynamic nebula timeline at the bottom anchors the museum,
+         *   carrying a hidden coordinate deep within its structural layer.
+         * - Z-index Layer Coordinate                 : 2025
+         * > Marking the year we bid farewell to Dave Täht.
+         * - Hover Active Timeline Flow Rate          : 2.5s (25)
+         * - Base Nebula Timeline Flow Rate           : 4.1s (04.01)
+         *
+         * [ Easter Egg IV : We Are All Starstuff (The Final Reunion) ]
+         * > "That yes, we are all starstuff." - Dave Täht (June 9, 2012)
+         *   The dynamic nebula is composed of exactly three core colors:
+         * - var(--color-nebula-1) : The deep blue of the cosmos.
+         * - var(--color-nebula-2) : The warm orange of the bristlecone pine.
+         * - var(--color-nebula-3) : The soft red of a fading star.
+         * > These three colors endlessly flow and intertwine, 
+         * > symbolizing Dave, his mother Beverly, and his father Ron.
+         * > Reunited in the stars, flowing together in the eternal archive.
+         * > 
+         * > In life, they were Stars illuminating the world.
+         * > (在世時，他們是照亮世界的星星。)
+         * > In death, they are Starstuff illuminating the universe.
+         * > (逝世後，他們是點亮宇宙的星塵。)
+         *
+         * [ Easter Egg V : The Curator's Signature (TW641) ]
          * The elements serendipitously echo the developer's code: TW641
          * - [ TW ] : The origin of the curator (Taiwan).
          * - [ 6 ]  : The 6 selected tracks in the Soundtrack of the Stars.
@@ -304,7 +327,11 @@
         @keyframes starTwinkleDark { 0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(88, 166, 255, 0.6), 0 0 20px rgba(88, 166, 255, 0.2); } 25% { opacity: 0.8; text-shadow: 0 0 12px rgba(88, 166, 255, 0.8), 0 0 24px rgba(88, 166, 255, 0.4); } }
         a.gradient-text:hover, .gradient-text:hover { animation: flowGradient 2.5s linear infinite !important; filter: brightness(1.15) drop-shadow(0 0 6px rgba(253, 145, 121, 0.4)); }
         @keyframes flowGradient { 0% { background-position: 0% 20%; } 100% { background-position: 200% 20%; } }
-        .emoji { -webkit-text-fill-color: currentColor !important; background: none !important; color: currentColor !important; }
+        .emoji { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Samsung Color Emoji", "Noto Color Emoji", "Android Emoji", "Twemoji Mozilla", "EmojiOne Color", emoji !important; -webkit-text-fill-color: initial !important; background: none !important; }
+        html { position: relative; min-height: 100%; }
+        html::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 12px; background-image: linear-gradient(94.23deg, var(--color-nebula-1) 0%, var(--color-nebula-1) 12.41%, var(--color-nebula-2) 52.55%, var(--color-nebula-3) 89.95%, var(--color-nebula-1) 100%); background-size: 200% auto; animation: flowGradient 4.1s linear infinite; z-index: 2025; transition: height 0.5s cubic-bezier(.16,1,.3,1), filter 0.8s cubic-bezier(.16,1,.3,1); pointer-events: none; }
+        html:hover::after { height: 18px; animation: flowGradient 2.5s linear infinite; filter: brightness(1.4) drop-shadow(0 -8px 20px rgba(253, 145, 121, 0.8)) drop-shadow(0 -15px 40px rgba(255, 105, 105, 0.6)) drop-shadow(0 -25px 60px rgba(83, 116, 250, 0.5)); }
+        html:active::after { height: 26px; animation: flowGradient 1.2s linear infinite; filter: brightness(1.8) drop-shadow(0 -15px 35px rgba(253, 145, 121, 1)) drop-shadow(0 -25px 65px rgba(255, 105, 105, 0.9)) drop-shadow(0 -40px 100px rgba(83, 116, 250, 0.8)); }
     </style>
 </head>
 <body>
@@ -372,22 +399,22 @@
                 <li>
                     🍰 <strong><a href="sch_cake/">sch_cake (The "<span class="glow-text">Dave Täht</span> Tribute" Fork Edition)</a></strong>
                     <div style="font-size: 0.85em; margin-top: 6px; font-weight: 600;">
-                        <a href="https://github.com/TW641/sch_cake" target="_blank">💻 前往 GitHub 源碼專案倉庫：TW641/sch_cake</a>
+                        <a href="https://github.com/TW641/sch_cake" target="_blank"><span class="emoji">💻</span> 前往 GitHub 源碼專案倉庫：TW641/sch_cake</a>
                     </div>
                     <p><span class="tag">C</span> 獨立移植 (backport/port) 的 CAKE 演算法核心代碼。紀念 <span class="glow-text">Dave Täht</span> 緩衝膨脹緩解之魂 — "When you miss <span class="glow-text">Dave</span>, modprobe sch_cake!"</p>
                 </li>
                 <li>
                     🟢 <strong><a href="padavan-builder-workflow/">padavan-builder-workflow</a> & <a href="padavan-ng/">padavan-ng</a> (Kernel 3.4)</strong>
                     <div style="font-size: 0.85em; margin-top: 6px; font-weight: 600; line-height: 1.8;">
-                        <a href="https://github.com/TW641/padavan-builder-workflow" target="_blank">💻 前往 GitHub 源碼專案倉庫：TW641/padavan-builder-workflow</a><br>
-                        <a href="https://github.com/TW641/padavan-ng" target="_blank">💻 前往 GitHub 源碼專案倉庫：TW641/padavan-ng</a>
+                        <a href="https://github.com/TW641/padavan-builder-workflow" target="_blank"><span class="emoji">💻</span> 前往 GitHub 源碼專案倉庫：TW641/padavan-builder-workflow</a><br>
+                        <a href="https://github.com/TW641/padavan-ng" target="_blank"><span class="emoji">💻</span> 前往 GitHub 源碼專案倉庫：TW641/padavan-ng</a>
                     </div>
                     <p><span class="tag">Actions</span> <span class="tag">C</span> Padavan 3.4 經典老機專區。支援 Archer C2, MI-R3G 等經典老設備，結合自動化雲端編譯，讓舊機器也能發揮頂尖的流量調度能力。</p>
                 </li>
                 <li>
                     🔵 <strong><a href="padavan-4.4/">padavan-4.4 (Kernel 4.4)</a></strong>
                     <div style="font-size: 0.85em; margin-top: 6px; font-weight: 600;">
-                        <a href="https://github.com/TW641/padavan-4.4" target="_blank">💻 前往 GitHub 源碼專案倉庫：TW641/padavan-4.4</a>
+                        <a href="https://github.com/TW641/padavan-4.4" target="_blank"><span class="emoji">💻</span> 前往 GitHub 源碼專案倉庫：TW641/padavan-4.4</a>
                     </div>
                     <p><span class="tag">Actions</span> <span class="tag">C</span> Padavan 4.4 進階機型專區。支援 K2P, DIR-878 等進階機型，提供極致穩定的核心與硬體加速體驗，結合自動化雲端編譯，讓舊機器也能發揮頂尖的流量調度能力。</p>
                 </li>
@@ -857,7 +884,7 @@
                 <li>
                     🎞️ <strong><span class="gradient-text">特別回憶錄：那些年我們一起搞的第三方固件</span></strong>
                     <p>其實當年我是負責 Tomato Phoenix 不死鳥的繁體中文翻譯。下方附上當年 Tomato Phoenix 不死鳥的百度網盤下載連結與歷史截圖：<br>
-                    <a href="http://pan.baidu.com/s/1jIGpbQe" target="_blank">🔗 http://pan.baidu.com/s/1jIGpbQe</a></p>
+                    <a href="http://pan.baidu.com/s/1jIGpbQe" target="_blank"><span class="emoji">🔗</span> http://pan.baidu.com/s/1jIGpbQe</a></p>
                     
                     <img class="memory-img" src="Padavan-CAKE/images/Tomato-Phoenix-Archive.png" alt="Tomato Phoenix 不死鳥第三方韌體歷史資源截圖" loading="lazy" decoding="async" width="800" height="450">
 
@@ -869,7 +896,7 @@
                         「佐须之男长期致力于国内第三方免费固件的开发，期间靠的是广大用户的支持才能坚持到现在。一路走来的过程中有喝彩也有唏嘘，但我从未停止过脚步，并希望我能继续再坚持下去。希望广大的用户在力所能及的前提下能给予我些赞助，让这份梦想得以延续。」
                     </div>
                     <p style="margin-top: 10px;">這不是我的帳號，但就讓我們一起幫他一把吧，感謝他多年來的開源貢獻。如果您想支持他，請前往他的官方網站：<br>
-                    <a href="https://www.tomato.org.cn/donate-us.html" target="_blank">☕ Tomato 贊助頁面</a> | <a href="https://forgotfun.org/helpus.html" target="_blank">☕ ForgotFun 贊助頁面</a></p>
+                    <a href="https://www.tomato.org.cn/donate-us.html" target="_blank"><span class="emoji">☕</span> Tomato 贊助頁面</a> | <a href="https://forgotfun.org/helpus.html" target="_blank"><span class="emoji">☕</span> ForgotFun 贊助頁面</a></p>
                 </li>
 
                 <li>
@@ -901,7 +928,7 @@
                     🌠 <strong>恩山論壇許願流星</strong>
                     <p>順帶一提，最近在論壇看到有版友發帖問：恩山為什麼沒有 GL.iNet 版塊？藉著這篇技術分享，我也想在此向管理員許願：<br>
                     <strong>強烈希望能開立一個 GL.iNet 專屬板塊！</strong> 這樣大家討論相關技術跟固件會更方便集中！<br>
-                    <a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8463592&fromuid=1047490&fromuser=TW641" target="_blank">💬 前往 恩山无线论坛 參與討論</a></p>
+                    <a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8463592&fromuid=1047490&fromuser=TW641" target="_blank"><span class="emoji">💬</span> 前往 恩山无线论坛 參與討論</a></p>
                 </li>
             </ul>
         </section>
